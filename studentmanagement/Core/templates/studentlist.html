@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Student Directory</h2>
+    {% if user.is_superuser %}
+    <a href="{% url 'add_student' %}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Add Student</a>
+    {% endif %}
+</div>
+<table class="table table-hover shadow-sm border">
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Level</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student }}</td>
+            <td><span class="badge bg-info text-dark">{{ student.class_type }}</span></td>
+            <td>{{ student.phone_number }}</td>
+            <td>
+                <a href="{% url 'student_edit' student.id %}" class="text-warning me-2"><i class="bi bi-pencil-square"></i></a>
+                <a href="{% url 'student_details' student.id %}" class="text-info me-2"><i class="bi bi-eye"></i></a>
+                <a href="{% url 'student_confirm_delete' student.id %}" class="text-danger"><i class="bi bi-trash"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
