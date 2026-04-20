@@ -16,8 +16,11 @@
                         <a href="{% url 'student_edit' student.id %}" class="btn btn-sm btn-warning">
                             <i class="bi bi-pencil"></i> Edit
                         </a>
+                        <a href="{% url 'student_list' %}" class="btn btn-sm btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Back
+                        </a>
                         {% endif %}
-                        <a href="{% url 'course_list'%}" class="btn btn-sm btn-secondary">
+                        <a href="{% url 'home' %}" class="btn btn-sm btn-secondary">
                             <i class="bi bi-arrow-left"></i> Back
                         </a>
                     </div>

@@ -11,7 +11,7 @@ urlpatterns = [
     # Student URLs
     path('studentlist/', views.StudentList, name='studentlist'),
     path('students/<int:student_id>/', views.StudentDetails, name='student_details'),
-    path('students/add/', views.AddStudent, name='add_student'),
+    path('students/add/', views.AddStudent, name='student_create'),
     path('students/confirm_delete/<int:student_id>/', views.StudentConfirmDelete, name='student_confirm_delete'),
     path('students/edit/<int:student_id>/', views.StudentEdit, name='student_edit'),
     #course URL
